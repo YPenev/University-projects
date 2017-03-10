@@ -1,8 +1,0 @@
-D:\Study\_TELERIK\Projects\JavaGame_HomeWork\JavaGame_HomeWork\bin\Debug\JavaGame_HomeWork.jar
-D:\Study\_TELERIK\Projects\JavaGame_HomeWork\JavaGame_HomeWork\obj\Debug\pkg\Program.class
-D:\Study\_TELERIK\Projects\JavaGame_HomeWork\JavaGame_HomeWork\obj\Debug\JavaGame_HomeWork.jar
-D:\Projects\University-projects\Java\GuessNumberGame\JavaGame_HomeWork\bin\Debug\JavaGame_HomeWork.jar
-D:\Projects\University-projects\Java\GuessNumberGame\JavaGame_HomeWork\obj\Debug\JavaGame_HomeWork\Player.class
-D:\Projects\University-projects\Java\GuessNumberGame\JavaGame_HomeWork\obj\Debug\pkg\Program$1.class
-D:\Projects\University-projects\Java\GuessNumberGame\JavaGame_HomeWork\obj\Debug\pkg\Program.class
-D:\Projects\University-projects\Java\GuessNumberGame\JavaGame_HomeWork\obj\Debug\JavaGame_HomeWork.jar
