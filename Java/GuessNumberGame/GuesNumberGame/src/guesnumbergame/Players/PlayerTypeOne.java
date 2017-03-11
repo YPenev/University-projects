@@ -9,39 +9,14 @@ import guesnumbergame.Player;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- *
  * @author Penev
  */
-public class PlayerTypeOne implements Player {
+public class PlayerTypeOne extends Player {
 
-    private String name;
-    private int accuracy = 0;
-
-    private int GuessNumber() {
-
-      
+    @Override
+    protected int GuessNumber() {
         int answer = ThreadLocalRandom.current().nextInt(100, 1000);
-
+        
         return answer;
     }
-
-    public void Play() {
-        while (!finishGame) {
-
-              // Thread.Sleep(accuracy);
-              
-            int guess = this.GuessNumber();
-
-            if (guess == secretNumber) {
-                // add Winner to results
-                // finishGame = true;
-                return;
-            } else {
-                accuracy     = // MOD(secretNumber - answer);
-            }
-        }
-
-        //add bestAnswer to results
-    }
-
 }

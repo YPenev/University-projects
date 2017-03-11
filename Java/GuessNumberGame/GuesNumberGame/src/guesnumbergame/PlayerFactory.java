@@ -16,14 +16,17 @@ public class PlayerFactory {
 
     public Player getPlayer(int playerType) {
 
-        if (playerType == 1) {
-            return new PlayerTypeOne();
-        } else if (playerType == 2) {
-            return new PlayerTypeTwo();
-        } else if (playerType == 3) {
-            return new PlayerTypeThree();
-        } else if (playerType == 4) {
-            return new PlayerTypeFour();
+        switch (playerType) {
+            case 1:
+                return new PlayerTypeOne();
+            case 2:
+                return new PlayerTypeTwo();
+            case 3:
+                return new PlayerTypeThree();
+            case 4:
+                return new PlayerTypeFour();
+            default:
+                break;
         }
 
         return null;

@@ -13,6 +13,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class GuesNumberGame {
 
+    public static boolean finishGame = false;
+    public static int secretNumber;
+
     /**
      * @param args the command line arguments
      */
@@ -25,10 +28,15 @@ public class GuesNumberGame {
         // Init
         for (int i = 0; i < n; i++) {
             int rand = ThreadLocalRandom.current().nextInt(1, 5);
-            
+
             Player randomPlayer = playerFactory.getPlayer(rand);
-            
+
             //TODO: add player to list
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            //TODO: arrayOfPlayer[i].Guess
         }
 
         System.out.println("Hello, World!");
