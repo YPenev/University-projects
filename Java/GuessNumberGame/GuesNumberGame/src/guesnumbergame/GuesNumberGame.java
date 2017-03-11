@@ -5,6 +5,9 @@
  */
 package guesnumbergame;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -13,8 +16,13 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class GuesNumberGame {
 
+    public static final int MIN_SECRETNUMBERVALUE = 100;
+    public static final int MAX_SECRETNUMBERVALUE = 999;
+
     public static boolean finishGame = false;
     public static int secretNumber;
+    public static List<String> results = new ArrayList<String>();
+    public static HashSet<Integer> usedNumbers = new HashSet<Integer>();
 
     /**
      * @param args the command line arguments
@@ -29,7 +37,7 @@ public class GuesNumberGame {
         for (int i = 0; i < n; i++) {
             int rand = ThreadLocalRandom.current().nextInt(1, 5);
 
-            Player randomPlayer = playerFactory.getPlayer(rand);
+            Player randomPlayer = playerFactory.getPlayer("Player No:" + i,rand);
 
             //TODO: add player to list
         }
@@ -39,6 +47,7 @@ public class GuesNumberGame {
             //TODO: arrayOfPlayer[i].Guess
         }
 
+        // Print result
         System.out.println("Hello, World!");
         System.out.println("Sq gi pochnah");
 

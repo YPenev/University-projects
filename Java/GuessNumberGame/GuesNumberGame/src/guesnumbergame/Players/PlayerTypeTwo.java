@@ -5,6 +5,7 @@
  */
 package guesnumbergame.Players;
 
+import static guesnumbergame.GuesNumberGame.*;
 import guesnumbergame.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,24 +15,24 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * @author Penev
  */
-public class PlayerTypeTwo implements Player {
+public class PlayerTypeTwo extends Player {
 
-    private List<Integer> usedNumbers;
+    private List<Integer> currentPlayerUsedNumbers;
 
-    public PlayerTypeTwo() {
-        this.usedNumbers = new ArrayList<>();
+    public PlayerTypeTwo(String name) {
+        super(name);
+        this.currentPlayerUsedNumbers = new ArrayList<>();
     }
 
     @Override
-    public int Gues() {
-
+    protected int GuessNumber() {
         int answer = 0;
-        
-        do {
-            answer = ThreadLocalRandom.current().nextInt(100, 1000);
-        } while (this.usedNumbers.contains(answer));
 
-        this.usedNumbers.add(answer);
+        do {
+            answer = ThreadLocalRandom.current().nextInt(MIN_SECRETNUMBERVALUE, MAX_SECRETNUMBERVALUE + 1);
+        } while (this.currentPlayerUsedNumbers.contains(answer));
+
+        this.currentPlayerUsedNumbers.add(answer);
 
         return answer;
     }

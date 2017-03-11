@@ -5,6 +5,7 @@
  */
 package guesnumbergame.Players;
 
+import static guesnumbergame.GuesNumberGame.*;
 import guesnumbergame.Player;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -13,10 +14,14 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class PlayerTypeOne extends Player {
 
+    public PlayerTypeOne(String name) {
+        super(name);
+    }
+
     @Override
     protected int GuessNumber() {
-        int answer = ThreadLocalRandom.current().nextInt(100, 1000);
-        
+        int answer = ThreadLocalRandom.current().nextInt(MIN_SECRETNUMBERVALUE, MAX_SECRETNUMBERVALUE + 1);
+
         return answer;
     }
 }

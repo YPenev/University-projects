@@ -14,17 +14,17 @@ import guesnumbergame.Players.*;
  */
 public class PlayerFactory {
 
-    public Player getPlayer(int playerType) {
+    public Player getPlayer(String name, int playerType) {
 
         switch (playerType) {
             case 1:
-                return new PlayerTypeOne();
+                return new PlayerTypeOne(name);
             case 2:
-                return new PlayerTypeTwo();
+                return new PlayerTypeTwo(name);
             case 3:
-                return new PlayerTypeThree();
+                return new PlayerTypeThree(name);
             case 4:
-                return new PlayerTypeFour();
+                return new PlayerTypeFour(name);
             default:
                 break;
         }
