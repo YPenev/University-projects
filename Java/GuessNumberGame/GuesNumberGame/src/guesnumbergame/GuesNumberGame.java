@@ -45,27 +45,7 @@ public class GuesNumberGame {
 
         for (int i = 0; i < n; i++) {
 
-            //TODO: arrayOfPlayer[i].Guess
+            players[i].start();
         }
-
-        // Print result
-        System.out.println("Hello, World!");
-        System.out.println("Sq gi pochnah");
-
-        new Thread(new Runnable() {
-            public void run() {
-
-                for (int i = 0; i < 100000; i++) {
-                }
-
-                System.out.println("ThreadOne");
-
-            }
-        }).start();
-
-        new Thread(() -> {
-            System.out.println("ThreadTwo");
-        }).start();
-
     }
 }
