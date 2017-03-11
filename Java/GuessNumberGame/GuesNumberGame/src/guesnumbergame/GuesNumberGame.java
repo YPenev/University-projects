@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GuesNumberGame {
 
     public static final int MIN_SECRETNUMBERVALUE = 100;
-    public static final int MAX_SECRETNUMBERVALUE = 150;
+    public static final int MAX_SECRETNUMBERVALUE = 999;
 
     public static boolean finishGame = false;
     public static int numberOfPlayers;
