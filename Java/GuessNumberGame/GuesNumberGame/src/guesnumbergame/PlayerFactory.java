@@ -15,16 +15,18 @@ import guesnumbergame.Players.*;
 public class PlayerFactory {
 
     public Player getPlayer(String name, int playerType) {
+        
+       String nameWithTactic = "(T" + playerType + ") " + name;
 
         switch (playerType) {
             case 1:
-                return new PlayerTypeOne(name);
+                return new PlayerTypeOne(nameWithTactic);
             case 2:
-                return new PlayerTypeTwo(name);
+                return new PlayerTypeTwo(nameWithTactic);
             case 3:
-                return new PlayerTypeThree(name);
+                return new PlayerTypeThree(nameWithTactic);
             case 4:
-                return new PlayerTypeFour(name);
+                return new PlayerTypeFour(nameWithTactic);
             default:
                 break;
         }

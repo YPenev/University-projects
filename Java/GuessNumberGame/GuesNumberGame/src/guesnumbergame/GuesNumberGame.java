@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GuesNumberGame {
 
     public static final int MIN_SECRETNUMBERVALUE = 100;
-    public static final int MAX_SECRETNUMBERVALUE = 999;
+    public static final int MAX_SECRETNUMBERVALUE = 150;
 
     public static boolean finishGame = false;
     public static int secretNumber;
@@ -40,9 +40,12 @@ public class GuesNumberGame {
         for (int i = 0; i < n; i++) {
             int rand = ThreadLocalRandom.current().nextInt(1, 5);
 
-            players[i] = playerFactory.getPlayer("Player No:" + i, rand);
+            players[i] = playerFactory.getPlayer("Player No:" + (i + 1), rand);
         }
 
+        secretNumber = ThreadLocalRandom.current().nextInt(MIN_SECRETNUMBERVALUE, MAX_SECRETNUMBERVALUE + 1);
+        System.out.println("Secret number is: " + secretNumber);
+        
         for (int i = 0; i < n; i++) {
 
             players[i].start();
