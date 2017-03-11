@@ -21,6 +21,7 @@ public class GuesNumberGame {
     public static final int MAX_SECRETNUMBERVALUE = 150;
 
     public static boolean finishGame = false;
+    public static int numberOfPlayers;
     public static int secretNumber;
     public static List<String> results = new ArrayList<String>();
     public static HashSet<Integer> usedNumbers = new HashSet<Integer>();
@@ -31,23 +32,22 @@ public class GuesNumberGame {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        numberOfPlayers = sc.nextInt();
 
         PlayerFactory playerFactory = new PlayerFactory();
-        Player[] players = new Player[n];
+        Player[] players = new Player[numberOfPlayers];
 
         // Init
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numberOfPlayers; i++) {
             int rand = ThreadLocalRandom.current().nextInt(1, 5);
 
-            players[i] = playerFactory.getPlayer("Player No:" + (i + 1), rand);
+            players[i] = playerFactory.getPlayer("Player " + (i + 1), rand);
         }
 
         secretNumber = ThreadLocalRandom.current().nextInt(MIN_SECRETNUMBERVALUE, MAX_SECRETNUMBERVALUE + 1);
         System.out.println("Secret number is: " + secretNumber);
         
-        for (int i = 0; i < n; i++) {
-
+        for (int i = 0; i < numberOfPlayers; i++) {
             players[i].start();
         }
     }

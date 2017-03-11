@@ -21,7 +21,7 @@ public abstract class Player implements Runnable {
     protected int bestAnwer = MAX_SECRETNUMBERVALUE + 1;
 
     public Player(String name) {
-        System.out.println(name + "Is creating...");
+        System.out.println(name + " is creating...");
         this.name = name;
     }
 
@@ -37,7 +37,7 @@ public abstract class Player implements Runnable {
 
             if (guess == secretNumber) {
                 // add Winner to results
-                results.add(this.name + " WINNER");
+                results.add(this.name + " - WINNER");
 
                 finishGame = true;
                 return;
@@ -56,7 +56,7 @@ public abstract class Player implements Runnable {
 
     public void run() {
 
-        System.out.println(this.name + "Is running...");
+        System.out.println(this.name + " is running...");
 
         try {
             this.Play();
@@ -64,12 +64,15 @@ public abstract class Player implements Runnable {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        System.out.println("---RESULT---");
-        System.out.println(String.join("\n", results));
+        if (results.size() == numberOfPlayers) {
+            System.out.println("---RESULTS---");
+            System.out.println(String.join("\n", results));
+              System.out.println("Secret number was" + secretNumber);
+        }
     }
 
     public void start() {
-        System.out.println(this.name + "Is starting...");
+        System.out.println(this.name + " is starting...");
         if (thread == null) {
             thread = new Thread(this, this.name);
             thread.start();
