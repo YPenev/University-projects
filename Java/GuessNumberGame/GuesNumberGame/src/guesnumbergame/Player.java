@@ -35,7 +35,7 @@ public abstract class Player {
                 results.add(this.name + " WINNER");
 
                 finishGame = true;
-                return;
+                return; 
             } else {
                 this.accuracy = Math.abs(secretNumber - guess);
                 
