@@ -8,6 +8,7 @@ package guesnumbergame;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -29,17 +30,17 @@ public class GuesNumberGame {
      */
     public static void main(String[] args) {
 
-        int n = 1; //TODO insert
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
         PlayerFactory playerFactory = new PlayerFactory();
+        Player[] players = new Player[n];
 
         // Init
         for (int i = 0; i < n; i++) {
             int rand = ThreadLocalRandom.current().nextInt(1, 5);
 
-            Player randomPlayer = playerFactory.getPlayer("Player No:" + i,rand);
-
-            //TODO: add player to list
+            players[i] = playerFactory.getPlayer("Player No:" + i, rand);
         }
 
         for (int i = 0; i < n; i++) {

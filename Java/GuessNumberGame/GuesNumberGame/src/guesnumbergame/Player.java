@@ -38,6 +38,10 @@ public abstract class Player {
                 return;
             } else {
                 this.accuracy = Math.abs(secretNumber - guess);
+                
+                if(this.accuracy < this.bestAnwer){
+                    this.bestAnwer = this.accuracy;
+                }
             }
         }
 
