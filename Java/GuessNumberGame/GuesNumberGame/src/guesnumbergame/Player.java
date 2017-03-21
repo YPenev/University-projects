@@ -28,16 +28,22 @@ public abstract class Player implements Runnable {
     protected abstract int GuessNumber();
 
     public void Play() throws InterruptedException {
+
         while (!finishGame) {
 
             Thread.sleep(this.accuracy);
             int guess = this.GuessNumber();
-            usedNumbers.add(guess);
+            synchronized (usedNumbers) {
+                usedNumbers.add(guess);
+            }
             // System.out.println(this.name + " guess:" + guess);
 
             if (guess == secretNumber) {
-                // add Winner to results
-                results.add(this.name + " - WINNER");
+
+                synchronized (results) {
+                    // add Winner to results
+                    results.add(this.name + " - WINNER");
+                }
 
                 finishGame = true;
                 return;
@@ -50,24 +56,27 @@ public abstract class Player implements Runnable {
             }
         }
 
-        //add bestAnswer to results
-        results.add(this.name + " - " + bestAnwer);
+        synchronized (results) {
+            //add bestAnswer to results
+            results.add(this.name + " - " + bestAnwer);
+        }
     }
 
     public void run() {
 
         // System.out.println(this.name + " is running...");
-
         try {
             this.Play();
         } catch (InterruptedException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        if (results.size() == numberOfPlayers) {
-            System.out.println("---RESULTS---");
-            System.out.println(String.join("\n", results));
-            System.out.println("Secret number was" + secretNumber);
+        synchronized (results) {
+            if (results.size() == numberOfPlayers) {
+                System.out.println("---RESULTS---");
+                System.out.println(String.join("\n", results));
+                System.out.println("Secret number was " + secretNumber);
+            }
         }
     }
 
