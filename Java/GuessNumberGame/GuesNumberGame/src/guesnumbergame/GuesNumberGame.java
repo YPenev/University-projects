@@ -45,7 +45,7 @@ public class GuesNumberGame {
         }
 
         secretNumber = ThreadLocalRandom.current().nextInt(MIN_SECRETNUMBERVALUE, MAX_SECRETNUMBERVALUE + 1);
-        System.out.println("Secret number is: " + secretNumber);
+        // System.out.println("Secret number is: " + secretNumber);
         
         for (int i = 0; i < numberOfPlayers; i++) {
             players[i].start();
